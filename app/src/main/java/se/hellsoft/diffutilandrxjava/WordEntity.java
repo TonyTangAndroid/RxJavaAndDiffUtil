@@ -4,16 +4,16 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.ColorInt;
 
-public class Thing implements Parcelable {
-    public static final Creator<Thing> CREATOR = new Creator<Thing>() {
+public class WordEntity implements Parcelable {
+    public static final Creator<WordEntity> CREATOR = new Creator<WordEntity>() {
         @Override
-        public Thing createFromParcel(Parcel in) {
-            return new Thing(in);
+        public WordEntity createFromParcel(Parcel in) {
+            return new WordEntity(in);
         }
 
         @Override
-        public Thing[] newArray(int size) {
-            return new Thing[size];
+        public WordEntity[] newArray(int size) {
+            return new WordEntity[size];
         }
     };
     private int id;
@@ -21,16 +21,16 @@ public class Thing implements Parcelable {
     @ColorInt
     private int color;
 
-    private Thing() {
+    private WordEntity() {
     }
 
-    private Thing(int id, String text, int color) {
+    private WordEntity(int id, String text, int color) {
         this.id = id;
         this.text = text;
         this.color = color;
     }
 
-    protected Thing(Parcel in) {
+    protected WordEntity(Parcel in) {
         id = in.readInt();
         text = in.readString();
         color = in.readInt();
@@ -70,7 +70,7 @@ public class Thing implements Parcelable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Thing thing = (Thing) o;
+        WordEntity thing = (WordEntity) o;
 
         if (id != thing.id) return false;
         if (color != thing.color) return false;
@@ -109,8 +109,8 @@ public class Thing implements Parcelable {
             return this;
         }
 
-        public Thing build() {
-            return new Thing(id, text, color);
+        public WordEntity build() {
+            return new WordEntity(id, text, color);
         }
     }
 }
