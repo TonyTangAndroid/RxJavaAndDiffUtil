@@ -17,7 +17,7 @@ import static io.reactivex.android.schedulers.AndroidSchedulers.mainThread;
 import static io.reactivex.schedulers.Schedulers.computation;
 
 public class MainActivity extends AppCompatActivity {
-    private WordAdapter adapter;
+    private WordEntityAdapter adapter;
     private Disposable disposable;
 
     @Override
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        adapter = new WordAdapter();
+        adapter = new WordEntityAdapter();
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.listOfThings);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         disposable = WordEntityRepository
                 .latestThings(2, TimeUnit.SECONDS)
                 .scan(initialPair, (pair, next) -> {
-                    WordDiffCallback callback = new WordDiffCallback(pair.first, next);
+                    WordEntityDiffCallback callback = new WordEntityDiffCallback(pair.first, next);
                     DiffUtil.DiffResult result = DiffUtil.calculateDiff(callback);
                     return Pair.create(next, result);
                 })
