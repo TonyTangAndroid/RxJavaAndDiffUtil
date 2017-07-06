@@ -16,7 +16,7 @@ import io.reactivex.disposables.Disposable;
 import static io.reactivex.android.schedulers.AndroidSchedulers.mainThread;
 import static io.reactivex.schedulers.Schedulers.computation;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivityV2 extends AppCompatActivity {
     private WordEntityAdapter adapter;
     private Disposable disposable;
 

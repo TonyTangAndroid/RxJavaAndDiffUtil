@@ -8,5 +8,5 @@
     android:layout_height="match_parent"
     app:layoutManager="android.support.v7.widget.GridLayoutManager"
     app:spanCount="7"
-    tools:context="se.hellsoft.diffutilandrxjava.MainActivity"
+    tools:context="se.hellsoft.diffutilandrxjava.MainActivityV2"
     tools:listitem="@layout/thing_item"/>
